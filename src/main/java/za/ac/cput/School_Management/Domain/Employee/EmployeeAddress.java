@@ -71,4 +71,11 @@ public class EmployeeAddress{
         public int hashCode(){return Objects.hash(staffId);}
 
     }
+    @Override
+    public String toString() {
+        return "EmployeeAddress{" +
+                "staffId='" + staffId + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }
