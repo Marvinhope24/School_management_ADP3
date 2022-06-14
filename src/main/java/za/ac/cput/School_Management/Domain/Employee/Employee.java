@@ -1,67 +1,117 @@
 // Marvin Hope -219445842
+// Employee.java
+// 09 June 2022
 
 package za.ac.cput.School_Management.Domain.Employee;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Embeddable
-public class Employee {
+public class Employee implements Serializable {
+    @NotNull
+    @Id
+    private String staffId;
+    @NotNull
+    private String Email;
+    @NotNull
+    private String Name;
 
-   @Embedded private String staffId;
-   @NotNull private String email;
-   @NotNull private String name;
-    protected Employee(){}
-    private Employee(Builder builder) {
-        this.email = builder.email;
-        this.name = builder.name;
+    protected Employee() {
     }
+
+    //====================================================
+    //Private Constructor
+    public Employee(Builder builder) {
+        this.staffId = builder.staffId;
+        this.Email = builder.email;
+        this.Name = builder.name;
+    }
+
+    //====================================================
+    //Getters
+    public String getStaffId() {
+        return staffId;
+    }
+
     public String getEmail() {
-        return email;
+        return Email;
     }
+
     public String getName() {
-        return name;
+        return Name;
     }
-    public static class Builder implements Serializable {
-        private String email,name;
-        public Builder email(String email) {
+
+    //====================================================
+    // toString
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "staffId='" + staffId + '\'' +
+                ", Email='" + Email + '\'' +
+                ", Name='" + Name + '\'' +
+                '}';
+    }
+
+    //====================================================
+    // Builder Pattern
+    public static class Builder {
+        private String staffId;
+        private String email;
+        private String name;
+
+        public Employee.Builder staffId(String staffId) {
+            this.staffId = staffId;
+            return this;
+        }
+
+        public Employee.Builder email(String email) {
             this.email = email;
             return this;
         }
-        public Builder name(String name) {
+
+        public Employee.Builder name(String name) {
             this.name = name;
             return this;
         }
-        public Builder copy(Employee employee) {
-            this.email = employee.email;
-            this.name = employee.name;
+
+        public Employee.Builder copy(Employee employee) {
+            this.staffId = employee.getStaffId();
+            this.email = employee.getEmail();
+            this.name = employee.getName();
             return this;
         }
+
         public Employee build() {
             return new Employee(this);
         }
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Builder builder = (Builder) o;
-            return Objects.equals(email, builder.email) && Objects.equals(name, builder.name);
-        }
-        @Override
-        public int hashCode() {
-            return Objects.hash(email, name);
-        }
-        @Override
-        public String toString() {
-            return "Builder{" +
-                    "email='" + email + '\'' +
-                    ", name='" + name + '\'' +
-                    '}';
+
+        public static class StaffId {
+            private String staffId;
+
+            public StaffId(String staffId) {
+                this.staffId = staffId;
+            }
+
+            @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
+                StaffId staffId1 = (StaffId) o;
+                return staffId.equals(staffId1.staffId);
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(staffId);
+            }
         }
     }
 }
+
