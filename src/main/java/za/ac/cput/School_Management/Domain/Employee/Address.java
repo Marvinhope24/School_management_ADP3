@@ -10,8 +10,7 @@ public class Address {
     private String postalCode;
     private City city;
 
-    private Address(Builder builder)
-    {
+    private Address(Builder builder) {
         this.unitNumber = builder.unitNumber;
         this.complexName = builder.complexName;
         this.streetNumber = builder.streetNumber;
@@ -20,39 +19,32 @@ public class Address {
         this.city = builder.city;
     }
 
-    public String getUnitNumber()
-    {
+    public String getUnitNumber() {
         return unitNumber;
     }
 
-    public String getComplexName()
-    {
+    public String getComplexName() {
         return complexName;
     }
 
-    public String getStreetNumber()
-    {
+    public String getStreetNumber() {
         return streetNumber;
     }
 
-    public String getStreetName()
-    {
+    public String getStreetName() {
         return streetName;
     }
 
-    public String getPostalCode()
-    {
+    public String getPostalCode() {
         return postalCode;
     }
 
-    public City getCity()
-    {
+    public City getCity() {
         return city;
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Address{" +
                 "unitNumber='" + unitNumber + '\'' +
                 ", complexName='" + complexName + '\'' +
@@ -64,8 +56,7 @@ public class Address {
     }
 
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Address)) return false;
         Address address = (Address) o;
@@ -73,13 +64,11 @@ public class Address {
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         return Objects.hash(getUnitNumber(), getComplexName(), getStreetNumber(), getStreetName(), getPostalCode(), getCity());
     }
 
-    public static class Builder
-    {
+    public static class Builder {
         private String unitNumber;
         private String complexName;
         private String streetNumber;
@@ -87,44 +76,37 @@ public class Address {
         private String postalCode;
         private City city;
 
-        public Builder setUnitNumber(String unitNumber)
-        {
+        public Builder setUnitNumber(String unitNumber) {
             this.unitNumber = unitNumber;
             return this;
         }
 
-        public Builder setComplexName(String complexName)
-        {
+        public Builder setComplexName(String complexName) {
             this.complexName = complexName;
             return this;
         }
 
-        public Builder setStreetNumber(String streetNumber)
-        {
+        public Builder setStreetNumber(String streetNumber) {
             this.streetNumber = streetNumber;
             return this;
         }
 
-        public Builder setStreetName(String streetName)
-        {
+        public Builder setStreetName(String streetName) {
             this.streetName = streetName;
             return this;
         }
 
-        public Builder setPostalCode(String postalCode)
-        {
+        public Builder setPostalCode(String postalCode) {
             this.postalCode = postalCode;
             return this;
         }
 
-        public Builder setCity(City city)
-        {
+        public Builder setCity(City city) {
             this.city = city;
             return this;
         }
 
-        public Builder copy(Address address)
-        {
+        public Builder copy(Address address) {
             this.unitNumber = address.unitNumber;
             this.complexName = address.complexName;
             this.streetNumber = address.streetNumber;
@@ -134,10 +116,11 @@ public class Address {
             return this;
         }
 
-        public Address build()
-        {
+        public Address build() {
             return new Address(this);
         }
 
+
+    }
 
 }
