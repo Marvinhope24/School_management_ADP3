@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public abstract class NameRepo implements iNameRepo<Name, String> {
     private static List<Name> nameList;
-    private static NameRepo NIRepo = null;
+    private static NameRepo Repo = null;
 
 
     NameRepo() {
@@ -19,8 +19,8 @@ public abstract class NameRepo implements iNameRepo<Name, String> {
     }
 
     public static NameRepo repository(){
-        if(NIRepo == null){
-            NIRepo = new NameRepo() {
+        if(Repo == null){
+            Repo = new NameRepo() {
                 @Override
                 public Name create(Name name) {
                     return null;
@@ -42,7 +42,7 @@ public abstract class NameRepo implements iNameRepo<Name, String> {
                 }
             };
         }
-        return NIRepo;
+        return Repo;
     }
 
     public boolean delete(String firstName) {
