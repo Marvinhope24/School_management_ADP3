@@ -2,26 +2,26 @@ package za.ac.cput.School_Management.Factory.Employee;
 
 import za.ac.cput.School_Management.Domain.Employee.Address;
 import za.ac.cput.School_Management.Domain.Employee.City;
+import za.ac.cput.School_Management.Helper.StringHelper;
 
 
 public class AddressFactory {
-    public static Address
-    NewAddress(String unitNumber, String complexName, String streetNumber,String streetName, String postalCode, City city)
+    public static Address build(String unitNumber, String complexName, String streetNumber,String streetName, String postalCode, City city)
 
     {
+        StringHelper.isEmptyOrNull("unitNumber");
+        StringHelper.isEmptyOrNull("complexName");
+        StringHelper.isEmptyOrNull("streetNumber");
+        StringHelper.isEmptyOrNull("streetName");
+        StringHelper.isEmptyOrNull("postalCode");
+        StringHelper.isEmptyOrNull("streetNumber");
 
-        if( streetNumber == null||streetNumber.equals("")){
-            throw new IllegalArgumentException("street number");
-        }
-        if( streetName == null ||streetName.equals("")){
-            throw new IllegalArgumentException("street name");
-        }
-        if(postalCode == null){
-            throw new IllegalArgumentException("number must be between 1000-9999");
-        }
-        if(city == null || city.equals("")){
-            throw new IllegalArgumentException("city");
-        }
+        StringHelper.checkStringParam("unitNumber", unitNumber);
+        StringHelper.checkStringParam("complexName", complexName);
+        StringHelper.checkStringParam("streetNumber", streetNumber);
+        StringHelper.checkStringParam("streetName", streetName);
+        StringHelper.checkStringParam("streetNumber", streetNumber);
+
 
         return new Address.Builder()
                 .setUnitNumber(unitNumber)

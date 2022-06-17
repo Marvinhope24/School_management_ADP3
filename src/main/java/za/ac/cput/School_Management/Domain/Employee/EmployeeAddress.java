@@ -1,20 +1,23 @@
+/*Jayden Johnson -219086796
+ EmployeeAddress.java
+ */
+
 package za.ac.cput.School_Management.Domain.Employee;
 
-import javax.persistence.Id;
+import com.sun.istack.NotNull;
 import javax.persistence.Entity;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@IdClass(EmployeeAddress.EmployeeAddressId.class)
+@Embeddable
 public class EmployeeAddress{
 
-    @NotNull @Id  private String staffId;
-    @NotNull private String address;
+    @NotNull
+    @Id private String staffId;
+    @Embedded private Address address;
 
-    protected EmployeeAddress() {}
+    public EmployeeAddress() {}
 
     private EmployeeAddress(Builder builder){
         this.staffId = builder.staffId;
@@ -24,17 +27,37 @@ public class EmployeeAddress{
 
     public String getStaffId() {return staffId;}
 
-    public String getAddress() {return address;}
+    public Address getAddress() {return address;}
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        EmployeeAddress employeeAddress = (EmployeeAddress) o;
+        return staffId.equals(employeeAddress.staffId) && address.equals(employeeAddress.address);
+    }
+
+    @Override
+    public int hashCode(){return Objects.hash(staffId, address);}
+
+    @Override
+    public String toString() {
+        return "EmployeeAddress{" +
+                "staffId='" + staffId + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 
     public static class Builder{
-        private String staffId, address;
+        private String staffId;
+        private Address address;
 
-        public Builder staffId(String staffId){
+        public EmployeeAddress.Builder staffId(String staffId){
             this.staffId = staffId;
             return this;
         }
 
-        public Builder address (String address){
+        public EmployeeAddress.Builder address (Address address){
             this.address = address;
             return this;
         }
@@ -48,34 +71,6 @@ public class EmployeeAddress{
         public EmployeeAddress build() { return new EmployeeAddress(this);}
     }
 
-    public static class EmployeeAddressId implements Serializable {
-        private String staffId;
-
-        public EmployeeAddressId(String staffId){
-            this.staffId = staffId;
-        }
-
-        protected EmployeeAddressId() {}
-
-        public String getStaffId() {return staffId; }
-
-        @Override
-        public boolean equals(Object o){
-            if (this == o) return true;
-            if(o == null || getClass() != o.getClass()) return false;
-            EmployeeAddressId that = (EmployeeAddressId) o;
-            return staffId.equals(that.staffId);
-        }
-
-        @Override
-        public int hashCode(){return Objects.hash(staffId);}
-
-    }
-    @Override
-    public String toString() {
-        return "EmployeeAddress{" +
-                "staffId='" + staffId + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
 }
+
+
