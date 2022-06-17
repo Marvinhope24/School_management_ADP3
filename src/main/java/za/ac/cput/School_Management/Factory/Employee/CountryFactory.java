@@ -7,14 +7,16 @@
 package za.ac.cput.School_Management.Factory.Employee;
 
 import za.ac.cput.School_Management.Domain.Employee.Country;
+import za.ac.cput.School_Management.Helper.StringHelper;
 
 public class CountryFactory {
     public static Country build(String countryId, String countryName){
-        if (countryId == null || countryId.isEmpty())
-            throw new IllegalArgumentException("CountryId is required");
 
-        if (countryName == null || countryName.isEmpty())
-            throw new IllegalArgumentException("CountryName is required");
+        StringHelper.isEmptyOrNull("countryId");
+        StringHelper.isEmptyOrNull("countryName");
+
+        StringHelper.checkStringParam("countryId", countryId);
+        StringHelper.checkStringParam("countryName", countryName);
 
         return new Country.Builder().countryId(countryId).countryName(countryName).build();
 
