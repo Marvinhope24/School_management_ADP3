@@ -14,7 +14,7 @@ public class AddressFactory {
         StringHelper.isEmptyOrNull("streetNumber");
         StringHelper.isEmptyOrNull("streetName");
         StringHelper.isEmptyOrNull("postalCode");
-        StringHelper.isEmptyOrNull("streetNumber");
+        StringHelper.isEmptyOrNull("city");
 
         StringHelper.checkStringParam("unitNumber", unitNumber);
         StringHelper.checkStringParam("complexName", complexName);
