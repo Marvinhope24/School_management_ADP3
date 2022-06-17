@@ -1,14 +1,31 @@
 package za.ac.cput.School_Management.Domain.Employee;
 
+import com.sun.istack.NotNull;
+
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
 import java.util.Objects;
 
+@Entity
+@Embeddable
 public class Address {
+    @NotNull
     private String unitNumber;
+    @NotNull
     private String complexName;
+    @NotNull
     private String streetNumber;
+    @NotNull
     private String streetName;
+    @NotNull
     private String postalCode;
+    @Embedded
     private City city;
+
+    public Address(){
+
+    }
 
     private Address(Builder builder) {
         this.unitNumber = builder.unitNumber;

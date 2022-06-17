@@ -6,6 +6,7 @@
 package za.ac.cput.School_Management.Domain.Employee;
 
 import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -19,8 +20,12 @@ public class City{
     private  String cityId;
     @NotNull
     private  String cityName;
-    @NotNull
+    @Embedded
     private  Country country;
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 
     protected City (){
 
