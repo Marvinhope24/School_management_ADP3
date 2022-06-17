@@ -9,14 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.School_Management.Domain.Employee.Address;
-import za.ac.cput.School_Management.Domain.Employee.City;
-import za.ac.cput.School_Management.Domain.Employee.Country;
-import za.ac.cput.School_Management.Domain.Employee.EmployeeAddress;
-import za.ac.cput.School_Management.Factory.Employee.AddressFactory;
-import za.ac.cput.School_Management.Factory.Employee.CityFactory;
-import za.ac.cput.School_Management.Factory.Employee.CountryFactory;
-import za.ac.cput.School_Management.Factory.Employee.EmployeeAddressFactory;
 import za.ac.cput.School_Management.Service.Employee.Interface.EmployeeAddressService;
 
 import java.util.List;
