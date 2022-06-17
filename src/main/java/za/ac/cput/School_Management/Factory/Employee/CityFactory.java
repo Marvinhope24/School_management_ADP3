@@ -6,19 +6,23 @@
 
 package za.ac.cput.School_Management.Factory.Employee;
 
-public class CityFactory {/*public static City build (String cityId, String cityName, Country country){
+import za.ac.cput.School_Management.Domain.Employee.City;
+import za.ac.cput.School_Management.Domain.Employee.Country;
+import za.ac.cput.School_Management.Helper.StringHelper;
 
+public class CityFactory {
+    public static City build (String cityId, String cityName, Country country){
 
-       if (cityId == null || cityId.isEmpty())
-            throw new IllegalArgumentException("CityId is required");
-        if (cityName == null || cityName.isEmpty())
-            throw new IllegalArgumentException("CityName is required");
-        if (country == null || country.isEmpty())
-            throw new IllegalArgumentException("Country is required");
+        StringHelper.isEmptyOrNull("cityId");
+        StringHelper.isEmptyOrNull("cityName");
+        StringHelper.isEmptyOrNull("country");
+
+        StringHelper.checkStringParam("staffId", cityId);
+        StringHelper.checkStringParam("staffId", cityName);
 
         return new City.Builder().cityId(cityId).cityName(cityName).country(country).build();
 
-    }*/
+    }
 
 
 }
