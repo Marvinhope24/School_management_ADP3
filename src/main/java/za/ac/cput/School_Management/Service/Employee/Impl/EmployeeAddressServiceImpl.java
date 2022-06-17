@@ -6,8 +6,8 @@ package za.ac.cput.School_Management.Service.Employee.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.School_Management.Domain.Employee.EmployeeAddress;
-import za.ac.cput.School_Management.Repository.Employee.Interface.EmployeeAddressRepository;
+import za.ac.cput.School_Management.Domain.EmployeeAddress;
+import za.ac.cput.School_Management.Repository.Interface.EmployeeAddressRepository;
 import za.ac.cput.School_Management.Service.Employee.Interface.EmployeeAddressService;
 
 import java.util.List;
@@ -25,10 +25,6 @@ public class EmployeeAddressServiceImpl implements EmployeeAddressService{
     @Override
     public List<EmployeeAddress> findAll(){
         return this.repository.findAll();
-    }
-
-    @Override
-    public void deleteByID(String id) {
     }
 
     @Override

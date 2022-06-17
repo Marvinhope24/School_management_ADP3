@@ -6,7 +6,7 @@ package za.ac.cput.School_Management.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.School_Management.Domain.Employee.EmployeeAddress;
+import za.ac.cput.School_Management.Domain.EmployeeAddress;
 import za.ac.cput.School_Management.Service.Employee.Interface.EmployeeAddressService;
 
 import java.util.List;
