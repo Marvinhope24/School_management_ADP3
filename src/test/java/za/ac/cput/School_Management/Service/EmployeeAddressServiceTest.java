@@ -25,7 +25,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class EmployeeAddressServiceImplTest {
-    private EmployeeAddress employeeAddress;
+   /* private EmployeeAddress employeeAddress;
     @Autowired private EmployeeAddressService service;
 
     @BeforeEach
@@ -80,5 +80,5 @@ class EmployeeAddressServiceImplTest {
         List<EmployeeAddress> employeeAddressList = this.service.findAll();
         assertEquals(1,employeeAddressList.size());
         this.service.delete(delete);
-    }
+    }*/
 }
