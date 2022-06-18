@@ -9,96 +9,71 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import java.util.Objects;
 
-@Embeddable
 public class Name {
-    @NotNull
-    private String firstname;
-    @NotNull
-    private String middlename;
-    @NotNull
-    private String Lastname;
+    private String firstName, middleName, lastName;
 
-    protected Name() {
+    private Name(Builder builder){
+        this.firstName = builder.firstName;
+        this.middleName = builder.middleName;
+        this.lastName = builder.lastName;
     }
 
-    private Name(Name.Builder builder) {
+    public String getFirstName() {return firstName;}
 
-        this.firstname = builder.firstname;
-        this.middlename = builder.middlename;
-        this.Lastname = builder.Lastname;
-    }
+    public String getMiddleName() {return middleName;}
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getMiddlename() {
-        return middlename;
-    }
-
-    public String getLastname() {
-        return Lastname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public void setMiddlename(String middlename) {
-        this.middlename = middlename;
-    }
-
-    public void setLastname(String lastname) {
-        Lastname = lastname;
-    }
+    public String getLastName() {return lastName;}
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Name name = (Name) o;
-        return firstname.equals(name.firstname) && middlename.equals(name.middlename) && Lastname.equals(name.Lastname);
+        return firstName.equals(name.firstName) && middleName.equals(name.middleName) && lastName.equals(name.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstname, middlename, Lastname);
+        return Objects.hash(firstName, middleName, lastName);
     }
+
     @Override
     public String toString() {
         return "Name{" +
-                "firstname='" + firstname + '\'' +
-                ", middlename='" + middlename + '\'' +
-                ", Lastname='" + Lastname + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 
-    public static class Builder {
-        private String firstname ,middlename,Lastname;
+    public static class Builder{
+        private String firstName, middleName, lastName;
 
-        public Name.Builder firstname(String firstname) {
-            this.firstname = firstname;
+        public Builder firstName(String firstName){
+            this.firstName = firstName;
             return this;
         }
 
-        public Name.Builder MiddleName(String MiddleName) {
-            this.middlename = middlename;
+        public Builder middleName(String middleName){
+            this.middleName = middleName;
             return this;
         }
 
-        public Name.Builder LastName(String Lastname) {
-            this.Lastname = Lastname;
+        public Builder lastName(String lastName){
+            this.lastName = lastName;
             return this;
         }
 
-        public Name.Builder copy(Name name) {
-            this.firstname = name.firstname;
-            this.middlename = name.middlename;
-            this.Lastname = name.Lastname;
+        public Builder copy(Name name){
+            this.firstName = name.firstName;
+            this.middleName = name.middleName;
+            this.lastName = name.lastName;
             return this;
         }
-        public Name build() {
+
+        public Name build(){
             return new Name(this);
         }
+
     }
 }
