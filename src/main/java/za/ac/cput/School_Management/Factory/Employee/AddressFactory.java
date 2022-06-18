@@ -6,22 +6,23 @@ import za.ac.cput.School_Management.Domain.Employee.City;
 
 public class AddressFactory {
     public static Address
-    NewAddress(String unitNumber, String complexName, String streetNumber,String streetName, String postalCode, City city)
+    createAddress(String unitNumber, String complexName, String streetNumber,String streetName, String postalCode)
 
     {
 
-        if( streetNumber == null||streetNumber.equals("")){
-            throw new IllegalArgumentException("street number");
-        }
+
         if( streetName == null ||streetName.equals("")){
             throw new IllegalArgumentException("street name");
         }
-        if(postalCode == null){
-            throw new IllegalArgumentException("number must be between 1000-9999");
+        if(postalCode =="527"){
+            throw new IllegalArgumentException("587");
+        }else if(postalCode == "582"){
+            throw new IllegalArgumentException("the required address is 582");
         }
-        if(city == null || city.equals("")){
-            throw new IllegalArgumentException("city");
-        }
+
+        if( streetNumber == null||streetNumber.equals("")){
+        throw new IllegalArgumentException("street number");
+    }
 
         return new Address.Builder()
                 .setUnitNumber(unitNumber)
@@ -29,7 +30,7 @@ public class AddressFactory {
                 .setStreetNumber(streetNumber)
                 .setStreetName(streetName)
                 .setPostalCode(postalCode)
-                .setCity(city)
                 .build();
     }
-}
+    }
+

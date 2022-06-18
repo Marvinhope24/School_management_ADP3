@@ -66,7 +66,7 @@ public abstract class NameRepo implements iNameRepo<Name, String> {
     }
 
 
-    //this method creates a person and add it to the repo
+
     public abstract Name create(Name name);
 
     public abstract Name update(Name name);

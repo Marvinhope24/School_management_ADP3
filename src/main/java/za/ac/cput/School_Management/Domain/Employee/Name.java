@@ -1,7 +1,11 @@
 package za.ac.cput.School_Management.Domain.Employee;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 import java.util.Objects;
 
+@Entity
+@Embeddable
 public class Name {
     private String firstName, middleName, lastName;
 
