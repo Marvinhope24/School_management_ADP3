@@ -1,6 +1,9 @@
 package za.ac.cput.School_Management.Service;
 
+import org.springframework.stereotype.Service;
+
 import java.util.Optional;
+
 
 public interface IService <T,ID> {
     T save(T t);

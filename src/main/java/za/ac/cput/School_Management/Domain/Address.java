@@ -1,11 +1,14 @@
 package za.ac.cput.School_Management.Domain;
 
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Objects;
+
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.CascadeType.PERSIST;
 
 @Embeddable
 public class Address {
@@ -19,7 +22,9 @@ public class Address {
     private String streetName;
     @NotNull
     private String postalCode;
-    @Embedded
+    @ManyToOne(cascade = {PERSIST, MERGE})
+    @NotFound(action = NotFoundAction.IGNORE)
+    @NotNull
     private City city;
 
     public Address(){

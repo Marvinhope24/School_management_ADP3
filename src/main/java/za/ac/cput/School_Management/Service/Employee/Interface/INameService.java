@@ -5,7 +5,7 @@ import za.ac.cput.School_Management.Service.IService;
 
 import java.util.Optional;
 
-public interface INameService extends IService {
+public interface INameService extends IService <Name, String>{
 
 }
 

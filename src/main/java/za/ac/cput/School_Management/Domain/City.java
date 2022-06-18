@@ -5,21 +5,27 @@
 
 package za.ac.cput.School_Management.Domain;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 
-@Embeddable
-public class City{
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.CascadeType.PERSIST;
+
+@Entity
+public class City implements Serializable {
     @Id
     @NotNull
     private  String Id;
     @NotNull
     private  String cityName;
-    @Embedded
+    @ManyToOne(cascade = {PERSIST, MERGE})
+    @NotFound(action = NotFoundAction.IGNORE)
+    @NotNull
     private Country country;
 
     protected City (){
@@ -46,27 +52,32 @@ public class City{
         return country;
     }
 
-//builder
+    //builder
 //equals and hashCode
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         City city = (City) o;
-        return Id.equals(city.Id) && cityName.equals(city.cityName) && country.equals(city.country);
+        return Objects.equals(Id, city.Id) && Objects.equals(cityName, city.cityName) && Objects.equals(country, city.country);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(Id, cityName, country);
     }
+
     @Override
     public String toString() {
         return "City{" +
-                "cityId='" + Id + '\'' +
+                "Id='" + Id + '\'' +
                 ", cityName='" + cityName + '\'' +
                 ", country=" + country +
                 '}';
     }
+
     public static class Builder{
         private String Id;
         private String cityName;

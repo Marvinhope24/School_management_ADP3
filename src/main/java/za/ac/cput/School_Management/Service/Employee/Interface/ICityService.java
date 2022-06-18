@@ -10,7 +10,6 @@ import za.ac.cput.School_Management.Service.IService;
 
 import java.util.List;
 
-public interface ICityService extends IService<City, String> {
+public interface ICityService extends IService <City, String> {
     List<City> findAll();
-   // void deleteById (String id);
 }

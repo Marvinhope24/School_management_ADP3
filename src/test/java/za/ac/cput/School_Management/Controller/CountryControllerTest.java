@@ -21,7 +21,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestMethodOrder((MethodOrderer.OrderAnnotation.class))
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CountryControllerTest {
 
     @LocalServerPort

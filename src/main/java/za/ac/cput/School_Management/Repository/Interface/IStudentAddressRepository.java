@@ -13,7 +13,6 @@ import za.ac.cput.School_Management.Domain.StudentAddress;
 @Repository
 public interface IStudentAddressRepository extends JpaRepository<StudentAddress, String>
 {
-
 }
 
 

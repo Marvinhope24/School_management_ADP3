@@ -5,6 +5,7 @@
 
 package za.ac.cput.School_Management.api;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.cput.School_Management.Domain.Country;
 import za.ac.cput.School_Management.Domain.Student;
@@ -15,7 +16,8 @@ import java.util.Optional;
 
 @Component
 public class CountryAPI {
-   /* private final ICountryService iCountryService;
+
+    private final ICountryService iCountryService;
     private final IStudentService iStudentService;
 
 
@@ -25,20 +27,15 @@ public class CountryAPI {
         this.iStudentService = iStudentService;
     }
 
-    public Country read (Country country, Student student){
+    public Country read(Country country, Student student) {
+        this.iStudentService.read(student.getStudentId());
+        return null;
+    }
 
-        Optional<Student> read = this.iStudentService.read(student.getName());
-        if (read.isPresent(){
-
-            Optional<Country> country =
-                    this.iCountryService.read(country.getCountryId);
-            if(country.isPresent()){
-                return this.iCountryService.save(country);
-            } return null;
-
-            return null;
-        }
-
-
-    }*/
+    public Optional<Country> read(String countryId) {
+        return null;
+    }
 }
+
+
+

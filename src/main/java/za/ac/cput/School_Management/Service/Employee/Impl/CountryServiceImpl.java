@@ -18,7 +18,6 @@ import java.util.Optional;
 public class CountryServiceImpl implements ICountryService {
     private final ICountryRepository repository;
 
-
     @Autowired public CountryServiceImpl(ICountryRepository repository) {
         this.repository = repository;
     }
@@ -26,11 +25,6 @@ public class CountryServiceImpl implements ICountryService {
     @Override
     public List<Country> findAll() {
         return this.repository.findAll();
-    }
-
-    @Override
-    public void deleteById(String id) {
-
     }
 
     @Override

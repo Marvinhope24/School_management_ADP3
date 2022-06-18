@@ -9,12 +9,10 @@ package za.ac.cput.School_Management.Domain;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
-@Embeddable
 public class Student {
 
     //constructors
@@ -45,7 +43,7 @@ public class Student {
         return Email;
     }
 
-    public Name getName() {
+    public za.ac.cput.School_Management.Domain.Name getName() {
         return Name;
     }
 

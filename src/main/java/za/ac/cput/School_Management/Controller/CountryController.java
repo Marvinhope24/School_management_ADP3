@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("school-management/city/")
+@RequestMapping("school_management/city/")
 @Slf4j
 public class CountryController {
 
@@ -52,7 +52,6 @@ public class CountryController {
     @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id){
         log.info("Delete request: {}", id);
-        this.iCountryService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 

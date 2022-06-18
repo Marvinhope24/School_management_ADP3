@@ -18,16 +18,13 @@ import java.util.Optional;
 public class CityServiceImpl implements ICityService {
     private final ICityRepository repository;
 
-
     @Autowired public CityServiceImpl(ICityRepository repository) {
         this.repository = repository;
     }
-
     @Override
     public List<City> findAll() {
         return this.repository.findAll();
     }
-
     @Override
     public City save(City city) {
         return this.repository.save(city);
@@ -41,10 +38,5 @@ public class CityServiceImpl implements ICityService {
     @Override
     public void delete(City city) {
         this.repository.delete(city);
-    }
-
-    //Q7.
-    public Optional<City> findById(String countryId){
-        return this.repository.findById(countryId);
     }
 }

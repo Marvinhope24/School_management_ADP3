@@ -7,23 +7,24 @@ package za.ac.cput.School_Management.Domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 
-@Embeddable
-public class Country {
+@Entity
+public class Country implements Serializable {
     @Id @NotNull private String Id;
     @NotNull private String countryName;
 
     protected Country (){
     }
 
-//constructor
+    //constructor
     private Country (Builder builder){
         this.Id = builder.Id;
         this.countryName = builder.countryName;
     }
 
-//getter
+    //getter
     public String getCountryId() {
         return Id;
     }
@@ -52,7 +53,7 @@ public class Country {
                 ", countryName='" + countryName + '\'' +
                 '}';
     }
-//builder
+    //builder
     public static class Builder {
         private String Id,countryName;
 
