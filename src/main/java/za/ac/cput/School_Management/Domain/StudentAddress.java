@@ -6,94 +6,47 @@
 
 package za.ac.cput.School_Management.Domain;
 
+import za.ac.cput.School_Management.Domain.Address;
+
 import javax.persistence.Id;
 import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
+@Embeddable
 public class StudentAddress
 {
     // constructors
     @NotNull @Id private String studentId;
-    @NotNull private String address;
+    @Embedded private Address address;
 
-    protected StudentAddress() {
+    public StudentAddress() {
 
     }
 
     // getters
-    public String getStudentId() {
-        return studentId;
-    }
+    public String getStudentId() {return studentId;}
+    public Address getAddress() {return address;}
 
-    public String getAddress() {
-        return address;
-    }
-
-    // private constructors
     private StudentAddress (Builder builder)
     {
         this.studentId = builder.studentId;
         this.address = builder.address;
     }
 
-    // builder pattern
-    public static class Builder
-    {
-        private String studentId;
-        private String address;
-
-        public StudentAddress.Builder studentId(String studentId) {
-            this.studentId = studentId;
-            return this;
-        }
-
-        public StudentAddress.Builder address(String address) {
-            this.address = address;
-            return this;
-        }
-
-        // builder copy
-        public Builder copy(StudentAddress studentAddress)
-        {
-            this.studentId = studentAddress.getStudentId();
-            this.address = studentAddress.getAddress();
-            return this;
-        }
-
-        public StudentAddress build()
-        {
-            return new StudentAddress(this);
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof StudentAddress)) return false;
+        StudentAddress that = (StudentAddress) o;
+        return studentId.equals(that.studentId) && address.equals(that.address);
     }
 
-    public static class StudentAddressId //implements Serializable
-    {
-        private String studentId;
-
-        public StudentAddressId(String studentId)
-        {
-            this.studentId = studentId;
-        }
-
-        public String getStudentId()
-        {
-            return studentId;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            StudentAddressId that = (StudentAddressId) o;
-            return Objects.equals(studentId, that.studentId);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(studentId);
-        }
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId, address);
     }
 
     // toString
@@ -104,4 +57,36 @@ public class StudentAddress
                 ", address=" + address +
                 '}';
     }
+
+    // builder pattern
+    public static class Builder
+    {
+        private String studentId;
+        private Address address;
+
+        public StudentAddress.Builder studentId(String studentId) {
+            this.studentId = studentId;
+            return this;
+        }
+
+        public StudentAddress.Builder address(Address address) {
+            this.address = address;
+            return this;
+        }
+
+        // builder copy
+        public Builder copy(StudentAddress studentAddress)
+        {
+            this.studentId = studentAddress.studentId;
+            this.address = studentAddress.address;
+            return this;
+        }
+
+        public StudentAddress build()
+        {
+            return new StudentAddress(this);
+        }
+    }
 }
+
+
