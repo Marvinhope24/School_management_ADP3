@@ -13,6 +13,6 @@ public class NameFactory {
         StringHelper.checkStringParam("Last Name", lastName);
         StringHelper.checkStringParam( "middleName",middleName);
 
-        return new Name.Builder().firstname(firstName).MiddleName(middleName).LastName(lastName).build();
+        return new Name.Builder().firstName(firstName).middleName(middleName).lastName(lastName).build();
     }
 }
