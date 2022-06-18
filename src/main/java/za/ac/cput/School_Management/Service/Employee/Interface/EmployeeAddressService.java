@@ -4,11 +4,13 @@
 
 package za.ac.cput.School_Management.Service.Employee.Interface;
 
+
 import za.ac.cput.School_Management.Domain.EmployeeAddress;
 import za.ac.cput.School_Management.Service.IService;
 
 import java.util.List;
 
-public interface EmployeeAddressService extends IService <EmployeeAddress, String> {
+public interface EmployeeAddressService extends IService<EmployeeAddress, String> {
     List<EmployeeAddress> findAll();
+
 }

@@ -9,6 +9,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import za.ac.cput.School_Management.Domain.Address;
+import za.ac.cput.School_Management.Domain.City;
+import za.ac.cput.School_Management.Domain.Country;
+import za.ac.cput.School_Management.Domain.EmployeeAddress;
+import za.ac.cput.School_Management.Factory.AddressFactory;
+import za.ac.cput.School_Management.Factory.CityFactory;
+import za.ac.cput.School_Management.Factory.CountryFactory;
+import za.ac.cput.School_Management.Factory.EmployeeAddressFactory;
 import za.ac.cput.School_Management.Service.Employee.Interface.EmployeeAddressService;
 
 import java.util.List;
@@ -17,7 +26,11 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class EmployeeAddressServiceImplTest {
-    /*private EmployeeAddress employeeAddress;
+    private EmployeeAddress employeeAddress;
+    private Country country;
+    private City city;
+    private Address address;
+
     @Autowired private EmployeeAddressService service;
 
     @BeforeEach
@@ -44,9 +57,6 @@ class EmployeeAddressServiceImplTest {
         assertEquals(1,employeeAddressList.size());
     }
 
-    @Test
-    void deleteByID() {
-    }
 
     @Test
     void save() {
@@ -72,5 +82,6 @@ class EmployeeAddressServiceImplTest {
         List<EmployeeAddress> employeeAddressList = this.service.findAll();
         assertEquals(1,employeeAddressList.size());
         this.service.delete(delete);
-    }*/
+    }
 }
+
