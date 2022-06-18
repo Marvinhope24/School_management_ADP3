@@ -12,14 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Embeddable
-public class StudentAddress
-{
+public class StudentAddress implements Serializable {
     // constructors
-    @NotNull @Id private String studentId;
+    @Id @NotNull  private String studentId;
     @Embedded private Address address;
 
     public StudentAddress() {

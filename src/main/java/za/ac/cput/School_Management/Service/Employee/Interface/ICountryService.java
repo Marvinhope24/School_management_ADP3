@@ -11,9 +11,8 @@ import za.ac.cput.School_Management.Service.IService;
 import java.util.List;
 import java.util.Optional;
 
-public interface ICountryService extends IService<Country, String> {
+public interface ICountryService extends IService <Country, String> {
     List<Country> findAll();
-    void deleteById(String id);
 
     //Optional<Country> findById(String id);
     //List<Country> deleteById(String id);

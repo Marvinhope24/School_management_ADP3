@@ -7,11 +7,12 @@ package za.ac.cput.School_Management.Domain;
 import com.sun.istack.NotNull;
 import javax.persistence.Entity;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class EmployeeAddress  {
-    @NotNull @Id private String staffId;
+public class EmployeeAddress implements Serializable {
+    @Id @NotNull private String staffId;
     @Embedded private Address address;
 
     protected EmployeeAddress() {}
@@ -25,28 +26,33 @@ public class EmployeeAddress  {
 
     public Address getAddress() {return address;}
 
+
+
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if(o == null || getClass() != o.getClass()) return false;
-        EmployeeAddress employeeAddress = (EmployeeAddress) o;
-        return staffId.equals(employeeAddress.staffId) && address.equals(employeeAddress.address);
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeAddress that = (EmployeeAddress) o;
+        return staffId.equals(that.staffId) && address.equals(that.address);
     }
 
     @Override
-    public int hashCode(){return Objects.hash(staffId, address);}
+    public int hashCode() {
+        return Objects.hash(staffId, address);
+    }
 
     @Override
     public String toString() {
         return "EmployeeAddress{" +
                 "staffId='" + staffId + '\'' +
-                ", address='" + address + '\'' +
+                ", address=" + address +
                 '}';
     }
 
     public static class Builder{
         private String staffId;
         private Address address;
+
 
         public EmployeeAddress.Builder staffId(String staffId){
             this.staffId = staffId;

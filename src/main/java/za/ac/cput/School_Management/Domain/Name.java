@@ -57,13 +57,14 @@ public class Name {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Name name = (Name) o;
-        return firstname.equals(name.firstname) && middlename.equals(name.middlename) && Lastname.equals(name.Lastname);
+        return Objects.equals(firstname, name.firstname) && Objects.equals(middlename, name.middlename) && Objects.equals(Lastname, name.Lastname);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(firstname, middlename, Lastname);
     }
+
     @Override
     public String toString() {
         return "Name{" +

@@ -11,6 +11,5 @@ import za.ac.cput.School_Management.Domain.City;
 
 
 @Repository
-public interface ICityRepository extends JpaRepository<City, String> {
-
+public interface ICityRepository extends JpaRepository <City, String> {
 }

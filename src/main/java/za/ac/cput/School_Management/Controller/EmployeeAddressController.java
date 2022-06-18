@@ -1,5 +1,5 @@
 /*Jayden Johnson -219086796
- EmployeeAddress.java
+ EmployeeAddressController.java
  */
 
 package za.ac.cput.School_Management.Controller;

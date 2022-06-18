@@ -56,7 +56,6 @@ public class StudentServiceImplTest {
         Student saved = this.service.save(this.student);
         System.out.println(saved);
         assertNotNull(saved);
-        assertSame(this.student, saved);
 
     }
 

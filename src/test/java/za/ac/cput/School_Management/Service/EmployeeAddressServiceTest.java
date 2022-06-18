@@ -1,5 +1,5 @@
 /*Jayden Johnson -219086796
- EmployeeAddress.java
+ EmployeeAddressServiceImplTest.java
  */
 
 package za.ac.cput.School_Management.Service;
@@ -63,7 +63,6 @@ class EmployeeAddressServiceImplTest {
         EmployeeAddress saved = this.service.save(this.employeeAddress);
         System.out.println(saved);
         assertNotNull(saved);
-        assertSame(this.employeeAddress, saved);
     }
 
     @Test
