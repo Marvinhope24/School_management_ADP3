@@ -45,7 +45,7 @@ public class Student {
         return Email;
     }
 
-    public za.ac.cput.School_Management.Domain.Name getName() {
+    public Name getName() {
         return Name;
     }
 
